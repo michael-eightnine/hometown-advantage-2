@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './scss/main.css'
+import Routes from './routes/Routes'
+import Header from './appShell/Header'
 
 class App extends Component {
   render() {
     return (
-      <div className="app-wrap">
-        <h1 className="header">ayee</h1>
-      </div>
+      <Router>
+        <Route render={({ location }) => (
+          <div className="app-wrap">
+            <Header />
+            <main>
+              <Routes />
+            </main>
+          </div>
+        )}/>
+      </Router>
     )
   }
 }
