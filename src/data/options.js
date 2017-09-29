@@ -5,6 +5,6 @@ const gridOptions = {
 		start: 19,
 		end: 5
 	}
-}
+};
 
-export default gridOptions;
+export default gridOptions
