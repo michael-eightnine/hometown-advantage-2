@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <Router>
         <Route render={({ location }) => (
-          <div className="app-wrap">
+          <div className='app-wrap'>
             <Header />
-            <main>
+            <main className='view-wrap'>
               <Routes />
             </main>
           </div>

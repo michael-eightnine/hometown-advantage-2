@@ -34,12 +34,14 @@ body {
 .width-container {
 	width: 100%;
 	max-width: 95%;
+	left: 2.5%;
 	margin-left: auto;
 	margin-right: auto;
-	transition: all .35s ease;
+	// transition: all .35s ease;
 
 	@media(max-width: $tabletBreak) {
 		max-width: 100%;
+		left: 0;
 		padding-left: 3.5vw;
 		padding-right: 3.5vw;
 	}
@@ -58,5 +60,52 @@ a {
 
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+//ROUTE ANIMATIONS
+main > span {
+  position: relative;
+  display: block;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 2;
+
+	.grid-list {
+		transform: translateY(-10vh);
+	}
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 350ms ease-in;
+
+	.grid-list {
+		transform: translateY(0);
+		transition: transform 350ms ease-out;
+	}
+}
+
+.fade-leave {
+	position: absolute;
+	width: 100%;
+	top: 0;
+  opacity: 1;
+	z-index: 1;
+
+	.grid-list {
+		transform: translateY(0);
+	}
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 350ms ease-in;
+
+	.grid-list {
+		transform: translateY(10vh);
+		transition: transform 350ms ease-out;
 	}
 }

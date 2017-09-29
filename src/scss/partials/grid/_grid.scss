@@ -15,7 +15,7 @@
 	white-space: nowrap;
 
 	&:after {
-		content: attr(data-filterBy);
+		content: attr(data-filter-by);
 		font-size: 1.25em;
 		text-transform: uppercase;
 		letter-spacing: 1.35em;

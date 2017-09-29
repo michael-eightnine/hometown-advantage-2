@@ -63,12 +63,13 @@ body {
 .width-container {
   width: 100%;
   max-width: 95%;
+  left: 2.5%;
   margin-left: auto;
-  margin-right: auto;
-  transition: all .35s ease; }
+  margin-right: auto; }
   @media (max-width: 1024px) {
     .width-container {
       max-width: 100%;
+      left: 0;
       padding-left: 3.5vw;
       padding-right: 3.5vw; } }
 
@@ -81,6 +82,39 @@ a {
   color: #000; }
   a:hover {
     text-decoration: underline; }
+
+main > span {
+  position: relative;
+  display: block; }
+
+.fade-enter {
+  opacity: 0;
+  z-index: 2; }
+  .fade-enter .grid-list {
+    transform: translateY(-10vh); }
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 350ms ease-in; }
+  .fade-enter.fade-enter-active .grid-list {
+    transform: translateY(0);
+    transition: transform 350ms ease-out; }
+
+.fade-leave {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  opacity: 1;
+  z-index: 1; }
+  .fade-leave .grid-list {
+    transform: translateY(0); }
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 350ms ease-in; }
+  .fade-leave.fade-leave-active .grid-list {
+    transform: translateY(10vh);
+    transition: transform 350ms ease-out; }
 
 .btn-svg .cursor {
   transition: transform .25s ease; }
@@ -480,7 +514,7 @@ header {
   z-index: 15;
   white-space: nowrap; }
   .grid-header:after {
-    content: attr(data-filterBy);
+    content: attr(data-filter-by);
     font-size: 1.25em;
     text-transform: uppercase;
     letter-spacing: 1.35em;
