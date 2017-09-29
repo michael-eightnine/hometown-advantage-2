@@ -1,0 +1,40 @@
+.loader-component {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	.spinner {
+		@include absCenter();
+		height: 30px;
+		width: 30px;
+		border: 2px solid $darkText;
+	}
+}
+
+
+@keyframes hideLoader {
+	0% {
+		opacity: 1;
+		display: block;
+	}
+	99% {
+		opacity: 0;
+		display: block;
+	}
+	100% {
+		display: none;
+		opacity: 0;
+	}
+}
+
+
+@keyframes showLoaded {
+	from {
+		opacity: 0;
+		transform: translate(0, -50px);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}

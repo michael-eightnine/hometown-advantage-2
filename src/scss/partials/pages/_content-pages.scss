@@ -1,0 +1,38 @@
+.content-page {
+	padding-bottom: 40px;
+
+	@media(max-width: $tabletBreak) {
+    padding-top: 65px;
+    padding-bottom: 35px;
+  }
+
+  @media(max-width: $mobileBreak) {
+    padding-bottom: 30px;
+  }
+
+	&-content {
+		font-family: $serif;
+		font-size: 14px;
+		line-height: 1.4;
+
+		p {
+			margin-bottom: 12px;
+
+			i {
+				font-style: italic;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		@media(max-width: $mobileBreak) {
+			font-size: 13px;
+
+			p {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

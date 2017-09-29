@@ -1,0 +1,141 @@
+
+//HEADER
+.grid-header {
+  position: fixed;
+  left: 50%;
+  top: 35px;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1.35em;
+  transform: translateX(-31%);
+	font-family: $serif;
+	z-index: $zHeader;
+	white-space: nowrap;
+
+	&:after {
+		content: attr(data-filterBy);
+		font-size: 1.25em;
+		text-transform: uppercase;
+		letter-spacing: 1.35em;
+		font-style: italic;
+		position: absolute;
+		top: 12px;
+		left: 50%;
+		transform: translateX(-55%);
+		font-family: $serif;
+		white-space: nowrap;
+	}
+
+  @media(max-width: $tabletBreak) {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    background-color: $transWhite;
+    padding: 15px 3.5vw 30px;
+    height: 60px;
+
+    &:after {
+      top: 28px;
+      transform:translateX(-50%);
+    }
+  }
+
+  @media(max-width: $mobileBreak) {
+    font-size: 15px;
+    letter-spacing: .25em;
+    padding: 23px 3.5vw 0;
+    height: 50px;
+    text-transform: lowercase;
+
+    &:before {
+      content: 'now consuming:';
+      display: block;
+      position: absolute;
+      text-align: center;
+      white-space: nowrap;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: $sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 9px;
+      letter-spacing: 2px;
+      font-style: normal;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+//LIST
+.grid-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 35px;
+  padding-top: 75px;
+
+	@media(min-width: 1400px) {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+  @media(max-width: $tabletBreak) {
+    padding-top: 65px;
+    padding-bottom: 75px;
+  }
+
+  @media(max-width: $mobileBreak) {
+    padding-bottom: 65px;
+  }
+
+  &--is-component {
+    display: block;
+  }
+}
+
+//FOOTER
+.grid-list-footer {
+  display: flex;
+  padding: 80px 0 50px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  img {
+    max-width: 215px;
+  }
+
+  h3 {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: $sans-serif;
+    letter-spacing: .75em;
+    text-align: center;
+  }
+
+  @media(min-width: $monitorBreak) {
+    padding-top: 100px;
+  }
+
+  @media(max-width: $tabletBreak) {
+    padding-top: 65px;
+  }
+
+  @media(max-width: $mobileBreak) {
+    padding-top: 45px;
+    padding-bottom: 35px;
+    font-size: 13px;
+  }
+}

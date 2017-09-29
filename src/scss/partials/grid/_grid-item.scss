@@ -1,0 +1,52 @@
+.grid-list-item {
+	width: calc(100% / 3);
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover, &:focus, &:active {
+		text-decoration: none;
+	}
+
+	img, svg {
+		width: 100%;
+	}
+
+	@media(min-width: $monitorBreak) {
+		width: 25%;
+	}
+
+	@media(max-width: $mobileBreak) {
+		width: 50%;
+		padding: 3px;
+
+		&:nth-of-type(odd) {
+			padding-left: 0;
+		}
+		&:nth-of-type(even) {
+			padding-right: 0;
+		}
+	}
+
+	//COLLECTION'S BUTTON
+	&.collection-btn-item {
+		margin-left: auto;
+		margin-right: 0;
+		text-align: right;
+		align-self: flex-end;
+
+		a {
+			display: block;
+			text-align: right;
+			margin-left: auto;
+		}
+
+		img, svg {
+			width: 210px;
+			max-width: 90%;
+		}
+	}
+}

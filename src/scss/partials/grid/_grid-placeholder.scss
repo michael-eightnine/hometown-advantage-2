@@ -1,0 +1,38 @@
+.grid-placeholder {
+	width: calc(100% / 3);
+	padding-bottom: calc(100% / 3);
+	position: relative;
+
+	.spinner {
+		@include absCenter();
+		animation: spinner 3s linear infinite;
+		animation-direction: alternate-reverse;
+		height: 30px;
+		width: 30px;
+		border: 2px solid $darkText;
+		transform-origin: center center;
+
+		&:last-of-type {
+			animation-delay: -3s;
+		}
+	}
+
+	@media(min-width: $monitorBreak) {
+		width: 25%;
+		padding-bottom: 25%;
+	}
+
+	@media(max-width: $mobileBreak) {
+		width: 50%;
+		padding-bottom: 50%;
+	}
+}
+
+@keyframes spinner {
+	from {
+		transform: translateY(-50%) scale(.5);
+	}
+	to {
+		transform: translateY(-50%) scale(1);
+	}
+}

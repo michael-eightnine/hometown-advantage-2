@@ -1,0 +1,35 @@
+.about {
+
+	&-header {
+		text-align: center;
+
+		img {
+			max-width: 75%;
+			width: 500px;
+			transform: translateX(-15%);
+
+			@media(min-width: $monitorBreak) {
+				width: 650px;
+			}
+
+			@media(max-width: $mobileBreak) {
+				transform: none;
+			}
+		}
+	}
+
+	&-content {
+		max-width: 66%;
+		margin-right: auto;
+		padding: 35px 0 15px;
+
+		@media(max-width: $mobileBreak) {
+			max-width: 100%;
+			padding-top: 25px;
+		}
+	}
+
+	.grid-list-item.about-btn-item svg {
+		width: 240px;
+	}
+}

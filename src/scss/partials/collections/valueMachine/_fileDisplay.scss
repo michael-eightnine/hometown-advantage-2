@@ -1,0 +1,110 @@
+.file-display {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	transition: opacity .35s ease;
+
+	&-image {
+		max-height: calc(100% - 50px);
+		overflow: hidden;
+		position: relative;
+		border: 2px solid $darkText;
+		border-bottom-width: 0px;
+		opacity: 1;
+		background-color: #fff;
+
+		img {
+			width: 100%;
+			display: block;
+			cursor: pointer;
+		}
+
+		.heart-overlay {
+			@include absCenter;
+
+			img {
+				width: 100px;
+				min-height: 90px;
+				animation: HeartOverlayActive 1.35s cubic-bezier(0.49,-0.25, 0.29, 1.17) 1;
+				animation-fill-mode: forwards;
+				-webkit-filter: drop-shadow( 0 0 1.5px rgba(0,0,0,.55) );
+    		filter: drop-shadow( 0 0 1.5px rgba(0,0,0,.55) );
+			}
+		}
+	}
+
+	&-actions {
+		height: 50px;
+		padding: 0 15px;
+		border: 2px solid $darkText;
+		border-top-width: 0px;
+		line-height: 48px;
+		background-color: #fff;
+
+		a {
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover, &:active, &:focus {
+				text-decoration: none;
+			}
+		}
+
+		.like-button-svg {
+			width: 25px;
+			display: inline-block;
+			vertical-align: middle;
+
+			.heartFill {
+				opacity: 0;
+				transition: opacity .15s ease;
+				transition-delay: .05s;
+			}
+
+			&.been-liked {
+				animation: heartIconActive 1.35s cubic-bezier(0.49,-0.25, 0.29, 1.17) 1;
+				animation-fill-mode: forwards;
+
+				.heartFill {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+@keyframes heartIconActive {
+	0% {
+		transform: scale(1);
+	}
+	8% {
+		transform: scale(0);
+	}
+	40% {
+		transform: scale(1.1);
+	}
+	60%, 100% {
+		transform: scale(1)
+	}
+}
+
+@keyframes HeartOverlayActive {
+	0% {
+		transform: scale(1);
+		opacity: 0;
+	}
+	8% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	40% {
+		transform: scale(1.1);
+		opacity: .7;
+	}
+	55%, 75%, 100% {
+		transform: scale(1);
+		opacity: .7;
+	}
+}

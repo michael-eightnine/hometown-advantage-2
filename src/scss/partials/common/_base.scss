@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #fff;
+
+	&.night-mode {
+		background-color: #000;
+		filter: invert(100%);
+	}
+}
+
+//LAYOUT
+.app-wrap {
+	display: flex;
+	flex-direction: row;
+	padding-top: 35px;
+
+	@media(max-width: $tabletBreak) {
+		padding-top: 0;
+	}
+}
+.view-wrap {
+	width: 100%;
+	padding-left: 200px;
+
+	@media(max-width: $tabletBreak) {
+		padding-left: 0;
+	}
+}
+
+.width-container {
+	width: 100%;
+	max-width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	transition: all .35s ease;
+
+	@media(max-width: $tabletBreak) {
+		max-width: 100%;
+		padding-left: 3.5vw;
+		padding-right: 3.5vw;
+	}
+}
+
+.desktop-only {
+	@media(max-width: $tabletBreak) {
+		display: none;
+	}
+}
+
+//TYPO
+a {
+	text-decoration: none;
+	color: $darkText;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

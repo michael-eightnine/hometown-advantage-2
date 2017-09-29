@@ -1,0 +1,83 @@
+.splash {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	transition: all .35s ease;
+
+	&-content {
+		@include absCenter;
+		height: 90vh;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+
+		&-section {
+			width: 210px;
+
+			img, svg {
+				width: 100%;
+			}
+		}
+
+		@media(max-height: 400px) and (orientation: landscape) {
+			&-section {
+				width: 150px;
+			}
+		}
+
+		@media(min-width: 1400px) {
+			height: 650px;
+		}
+	}
+}
+
+
+//appear/dissapear animation
+.splash-fade {
+	transition: opacity .25s ease, transform .25s ease;
+
+	&-enter {
+		opacity: 0;
+		transform: translateY(-50px);
+		z-index: -1;
+		pointer-events: none;
+
+		&.splash-fade-enter-active {
+			opacity: 1;
+			transform: translateY(0);
+			z-index: 100;
+			pointer-events: auto;
+		}
+	}
+
+	&-appear {
+		opacity: 0;
+		transform: translateY(-50px);
+		z-index: -1;
+		pointer-events: none;
+
+		&.splash-fade-appear-active {
+			opacity: 1;
+			transform: translateY(0);
+			z-index: 100;
+			pointer-events: auto;
+		}
+	}
+
+	&-leave {
+		opacity: 1;
+		transform: translateY(0);
+		z-index: 100;
+		pointer-events: auto;
+
+		&.splash-fade-leave-active {
+			opacity: 0;
+			transform: translateY(-50px);
+			z-index: -1;
+			pointer-events: none;
+		}
+	}
+}
