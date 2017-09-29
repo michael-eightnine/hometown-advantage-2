@@ -3,8 +3,10 @@ import LazyLoad from 'react-lazyload'
 import GridItem from './nodes/GridItem'
 import GridPromo from './nodes/GridPromo'
 import Placeholder from './nodes/Placeholder'
+import StreamFooter from './extras/StreamFooter'
+import CollectionFooter from './extras/CollectionFooter'
 
-const GridList = ({gridItems, onItemClick}) => {
+const GridList = ({gridItems, onItemClick, isCollection}) => {
 
   const generateList = () => {
     return gridItems.map((item, i) => {
@@ -26,6 +28,10 @@ const GridList = ({gridItems, onItemClick}) => {
   return (
     <section className='grid-list'>
       {generateList()}
+      {isCollection === true
+        ? <CollectionFooter />
+        : <StreamFooter />
+      }
     </section>
   )
 }
