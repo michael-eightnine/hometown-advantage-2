@@ -11,6 +11,8 @@ header {
 	flex-wrap: wrap;
 	align-content: space-between;
 	z-index: $zHeader;
+	opacity: 0;
+	animation: headerFade .4s ease 1 forwards;
 
 	.header-item {
 		width: 100%;
@@ -115,5 +117,15 @@ header {
 		&-item-logo img {
 			max-width: 125px;
 		}
+	}
+}
+
+@keyframes headerFade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
 	}
 }

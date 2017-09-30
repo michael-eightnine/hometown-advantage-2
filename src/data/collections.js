@@ -1,20 +1,19 @@
 const collections = [
 	{
 		name: 'value machine',
-		isGrid: false,
 		componentName: 'ValueMachine',
 	},
 	{
 		name: 'black lodges',
-		isGrid: true,
+		componentName: 'Grid',
 	},
 	{
 		name: 'an inner kiln',
-		isGrid: true,
+		componentName: 'Grid',
 	},
 	{
 		name: 'words stretched in arial',
-		isGrid: true,
+		componentName: 'Grid',
 	},
 ]
 

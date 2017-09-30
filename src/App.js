@@ -10,7 +10,9 @@ class App extends Component {
       <Router>
         <Route render={({ location }) => (
           <div className='app-wrap'>
-            <Header />
+            {location.pathname.length > 1 &&
+              <Header />
+            }
             <main className='view-wrap'>
               <Routes />
             </main>

@@ -1,9 +1,12 @@
 .splash {
-	position: relative;
+	position: fixed;
+	left: 0;
 	width: 100%;
 	height: 100vh;
-	overflow: hidden;
+	background-color: #fff;
+	box-shadow: 0 0 20px 20px #fff;
 	transition: all .35s ease;
+	z-index: 20;
 
 	&-content {
 		@include absCenter;

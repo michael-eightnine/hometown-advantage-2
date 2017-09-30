@@ -2,43 +2,48 @@ import React from 'react'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
 import Grid from './../grid/Grid'
+import ValueMachine from './../collections/valueMachine/ValueMachine'
+import About from './../staticPages/About'
+import Splash from './../staticPages/Splash'
 import collectionList from './../data/collections'
+
+const CollectionComponents = {
+  Grid,
+  ValueMachine,
+}
 
 const collectionRoutes = collectionList.map((item, index) => {
   const linkRef = '/collections/' + item.name.replace(/\s+/g, '-').toLowerCase()
+  const CollectionComponent = CollectionComponents[item.componentName]
 
   return (
     <Route
       path={linkRef}
-      render={() => item.isGrid ? <Grid filterBy={item.name} /> : null }
+      render={ () => <CollectionComponent filterBy={item.name} /> }
       key={index}
     />
   )
 })
 
-const Routes = (props) => {
+const Routes = ({location}) => {
   return (
     <CSSTransitionGroup
       transitionName="fade"
       transitionEnterTimeout={350}
       transitionLeaveTimeout={350}
     >
-      <Switch key={props.location.key} location={props.location}>
+      <Switch key={location.key} location={location}>
         {/* Splash Route */}
         <Route exact
           path='/'
           key='splash'
-          render={() => (
-            <div>HELLO HOME</div>
-          )}
+          render={ () => <Splash /> }
         />
         {/* Stream Route */}
         <Route
           path='/stream'
           key='content-stream'
-          render={() => (
-            <Grid filterBy={null} />
-          )}
+          render={ () => <Grid filterBy={null} /> }
         />
         {/* Collection Routes */}
         {collectionRoutes}
@@ -46,16 +51,12 @@ const Routes = (props) => {
         <Route
           path='/the-advantage'
           key='the-advantage'
-          render={() => (
-            <div>HELLO ABOUT</div>
-          )}
+          render={ () => <About /> }
         />
         {/* Fallback Route */}
         <Route
           path='/'
-          render={() => (
-            <Redirect to='/content-stream' />
-          )}
+          render={ () => <Redirect to='/stream' /> }
         />
       </Switch>
     </CSSTransitionGroup>

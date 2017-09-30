@@ -30,9 +30,8 @@ class Grid extends Component {
 
   render() {
     const filterBy = this.props.filterBy || 'content stream'
-    const activeItem = this.state.activeItem
     const gridItems = this.filterContent()
-    const isCollection = this.props.filterBy
+    const isCollection = this.props.filterBy ? true : false
 
     return (
       <div className='width-container'>
@@ -50,8 +49,11 @@ class Grid extends Component {
           transitionEnterTimeout={350}
           transitionLeaveTimeout={350}
         >
-          {activeItem != null
-            ? <GridModal item={activeItem} onClick={this.updateActiveItem} />
+          {this.state.activeItem != null
+            ? <GridModal
+                item={this.state.activeItem}
+                onClick={this.updateActiveItem}
+              />
             : null
           }
         </CSSTransitionGroup>

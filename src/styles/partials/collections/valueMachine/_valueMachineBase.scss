@@ -20,8 +20,8 @@
 	}
 
 	&.value-machine-complete {
-		transition: width .01s linear, min-height .01s linear;
-		transition-delay: .35s;
+		// transition: width .01s linear, min-height .01s linear;
+		// transition-delay: .35s;
 		width: 100%;
 		min-height: 100%;
 		height: auto;

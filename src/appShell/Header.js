@@ -6,8 +6,8 @@ import NavLinks from './nav/NavLinks'
 import NavToggle from './NavToggle'
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       navActive: false,
     }

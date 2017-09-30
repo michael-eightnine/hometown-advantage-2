@@ -26,7 +26,7 @@ const GridList = ({gridItems, onItemClick, isCollection}) => {
   }
 
   return (
-    <section className='grid-list'>
+    <section className='grid-list fade-inner'>
       {generateList()}
       {isCollection === true
         ? <CollectionFooter />

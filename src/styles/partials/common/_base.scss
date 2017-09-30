@@ -64,6 +64,11 @@ a {
 }
 
 //ROUTE ANIMATIONS
+
+.fade-inner {
+	will-change: transform;
+}
+
 main > span {
   position: relative;
   display: block;
@@ -73,16 +78,22 @@ main > span {
   opacity: 0;
   z-index: 2;
 
-	.grid-list {
-		transform: translateY(-10vh);
+	.fade-inner,
+	&.fade-inner {
+		transform: translateY(-40px);
 	}
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 350ms ease-in;
+  transition: opacity 300ms ease-in;
 
-	.grid-list {
+	&.fade-inner {
+		transform: translateY(0);
+		transition: opacity 300ms ease-in, transform 350ms ease-out;
+	}
+
+	.fade-inner {
 		transform: translateY(0);
 		transition: transform 350ms ease-out;
 	}
@@ -95,17 +106,23 @@ main > span {
   opacity: 1;
 	z-index: 1;
 
-	.grid-list {
+	.fade-inner,
+	&.fade-inner {
 		transform: translateY(0);
 	}
 }
 
 .fade-leave.fade-leave-active {
   opacity: 0;
-  transition: opacity 350ms ease-in;
+  transition: opacity 300ms ease-in;
 
-	.grid-list {
-		transform: translateY(10vh);
+	&.fade-inner {
+		transform: translateY(40px);
+		transition: opacity 300ms ease-in, transform 350ms ease-out;
+	}
+
+	.fade-inner {
+		transform: translateY(40px);
 		transition: transform 350ms ease-out;
 	}
 }
