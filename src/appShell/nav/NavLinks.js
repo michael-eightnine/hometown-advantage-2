@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Submenu from './Submenu'
 
@@ -10,6 +11,9 @@ class NavLinks extends Component {
     }
   }
 
+  // On click, toggle the submenu to active/inactive
+  // This is handled by this component, instead of <Submenu />
+  // Because the wrapping <ul>'s class changes based on this state
   onSubmenuClick = () => {
     this.setState({
       submenuActive: !this.state.submenuActive,
@@ -46,6 +50,10 @@ class NavLinks extends Component {
       </ul>
     )
   }
+}
+
+NavLinks.propTypes = {
+  onNavClick: PropTypes.func.isRequired,
 }
 
 export default NavLinks

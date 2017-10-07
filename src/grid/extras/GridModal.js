@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const GridModal = ({item, onClick}) => {
 	const itemTitle = item.title
@@ -19,6 +20,11 @@ const GridModal = ({item, onClick}) => {
 			</div>
 		</div>
 	)
+}
+
+GridModal.propTypes = {
+	item: PropTypes.object.isRequired,
+	onClick: PropTypes.func.isRequired,
 }
 
 export default GridModal

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const NavToggle = ({isActive, onToggle}) => {
   return (
@@ -9,6 +10,11 @@ const NavToggle = ({isActive, onToggle}) => {
       </div>
     </div>
   )
+}
+
+NavToggle.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired,
 }
 
 export default NavToggle

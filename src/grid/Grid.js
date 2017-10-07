@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { CSSTransitionGroup } from 'react-transition-group'
 import GridList from './GridList'
 import GridModal from './extras/GridModal'
@@ -12,6 +13,10 @@ class Grid extends Component {
 		}
   }
 
+  // Filter the JSON data that describes the grid content
+  // If no filterBy value is provided, return all streamable items
+  // Otherwise we're on a collection specific page
+  // So filter the content to be only that collection and remove any promos
   filterContent = () => {
     if(!this.props.filterBy) {
       return gridContent.filter((item) =>
@@ -24,6 +29,8 @@ class Grid extends Component {
     }
   }
 
+  // Updates state to show or hide the GridModal
+  // Passing `null` to this function hides the GridModal
   updateActiveItem = (item) => {
 		this.setState({activeItem: item})
 	}
@@ -60,6 +67,10 @@ class Grid extends Component {
       </div>
     )
   }
+}
+
+Grid.propTypes = {
+  filterBy: PropTypes.string,
 }
 
 export default Grid

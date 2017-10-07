@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const GridPromo = ({item}) => {
@@ -15,6 +16,10 @@ const GridPromo = ({item}) => {
       </div>
     </Link>
   )
+}
+
+GridPromo.propTypes = {
+	item: PropTypes.object.isRequired,
 }
 
 export default GridPromo

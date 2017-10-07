@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { CSSTransitionGroup } from 'react-transition-group'
 import Grid from './../grid/Grid'
@@ -12,6 +13,10 @@ const CollectionComponents = {
   ValueMachine,
 }
 
+// A map of routes generated based on the collectionList data
+// Matches how the corresponding <NavLink />'s are generated in `appShell/nav/Submenu`
+// Since collections can have different root components, the rendered component
+// Is mapped from the `CollectionComponents` object using `item.componentName`
 const collectionRoutes = collectionList.map((item, index) => {
   const linkRef = '/collections/' + item.name.replace(/\s+/g, '-').toLowerCase()
   const CollectionComponent = CollectionComponents[item.componentName]
@@ -61,6 +66,10 @@ const Routes = ({location}) => {
       </Switch>
     </CSSTransitionGroup>
   )
+}
+
+Routes.propTypes = {
+  location: PropTypes.object,
 }
 
 export default withRouter((props) => <Routes {...props}/>)

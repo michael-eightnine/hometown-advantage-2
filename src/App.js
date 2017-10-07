@@ -10,6 +10,8 @@ class App extends Component {
       <Router>
         <Route render={({ location }) => (
           <div className='app-wrap'>
+            {/* If on the index page, don't render the header
+                This is required for the splash page animation */}
             {location.pathname.length > 1 &&
               <Header />
             }

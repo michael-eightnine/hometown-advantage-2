@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import collectionList from './../../data/collections'
 import closeIcon from './../../svg/close.svg'
 
 class Submenu extends Component {
 
+  // Maps the data objects in collectionList array to <NavLink /> components
   generateCollectionLinks() {
     const collectionLinks = collectionList.map((item, i) => {
       const linkRef = '/collections/' + item.name.replace(/\s+/g, '-').toLowerCase()
@@ -25,6 +27,10 @@ class Submenu extends Component {
     return collectionLinks
   }
 
+  // On click, call prop function onMenuClick
+  // This toggles the visibility of this submenu
+  // If shouldPrevent === true, prevent the default action
+  // This is used for preventing route changes when clicking <NavLink /> elements
   handleClick = (event, shouldPrevent = false) => {
     if(shouldPrevent) event.preventDefault()
     this.props.onMenuClick()
@@ -52,6 +58,11 @@ class Submenu extends Component {
       </li>
     )
   }
+}
+
+Submenu.propTypes = {
+  onMenuClick: PropTypes.func.isRequired,
+  menuActive: PropTypes.bool.isRequired,
 }
 
 export default Submenu

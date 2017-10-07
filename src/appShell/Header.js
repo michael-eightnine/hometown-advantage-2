@@ -13,6 +13,8 @@ class Header extends Component {
     }
   }
 
+  // Used to hide/show the mobile version of the navigation (<NavLinks />)
+  // When <NavToggle /> is clicked, it calls this function
   setNavState = () => {
     this.setState({
       navActive: !this.state.navActive,
