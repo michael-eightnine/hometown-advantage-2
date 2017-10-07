@@ -1,5 +1,4 @@
 import React from 'react'
-
 import ThumbsUp from './../../../svg/affirmation/thumbsUp.svg'
 import CollectionFooter from './../../../grid/extras/CollectionFooter'
 

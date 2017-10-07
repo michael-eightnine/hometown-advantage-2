@@ -982,7 +982,8 @@ div.affirm-fade-leave {
       padding: 40px 0;
       min-width: 220px;
       overflow: hidden;
-      background-color: #fff; }
+      background-color: #fff;
+      transition: opacity .2s ease; }
       .value-machine .dropbox-prompt.dropbox-error h3 {
         text-transform: none; }
       .value-machine .dropbox-prompt.dropbox-error img {
@@ -999,13 +1000,6 @@ div.affirm-fade-leave {
     width: 100%;
     left: 0;
     bottom: 10px; }
-
-.error-fade-enter {
-  opacity: 0;
-  pointer-events: none; }
-  .error-fade-enter.modal-fade-enter-active {
-    opacity: 1;
-    pointer-events: auto; }
 
 @keyframes errorFadeOut {
   from {

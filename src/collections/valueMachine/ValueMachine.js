@@ -12,6 +12,9 @@ class ValueMachine extends Component {
     }
   }
 
+  // Accepts a file object from the <Uploader /> component
+  // Uses a FileReader() to convert the image to a dataURL
+  // Then stores that dataURL in state via a reader.onload event
   setUploadedFile = (file) => {
     const reader = new FileReader()
 
@@ -24,6 +27,8 @@ class ValueMachine extends Component {
     reader.readAsDataURL(file)
   }
 
+  // Sets the Value Machine's state to complete
+  // Indicates the success/affirmation message can be shown
   setComplete = () => {
     this.setState({
       complete: true,

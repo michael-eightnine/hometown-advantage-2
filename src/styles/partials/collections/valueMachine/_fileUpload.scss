@@ -64,6 +64,7 @@
 				min-width: 220px;
 				overflow: hidden;
 				background-color: #fff;
+				transition: opacity .2s ease;
 
 				h3 {
 					text-transform: none;
@@ -93,18 +94,6 @@
 
 
 //ANIMATION
-.error-fade {
-	&-enter {
-		opacity: 0;
-		pointer-events: none;
-
-		&.modal-fade-enter-active {
-			opacity: 1;
-			pointer-events: auto;
-		}
-	}
-}
-
 @keyframes errorFadeOut {
 	from {
 		opacity: 1;

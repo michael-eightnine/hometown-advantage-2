@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { CSSTransitionGroup } from 'react-transition-group'
 import invalidImage from './../../../svg/affirmation/noImageFace.svg'
 
 class Uploader extends Component {
@@ -12,6 +11,8 @@ class Uploader extends Component {
     }
   }
 
+  // Dropbox related functions
+  // Sets UI state to reflect drag activity
   prevent = (e) => {
     e.stopPropagation()
     e.preventDefault()
@@ -28,8 +29,13 @@ class Uploader extends Component {
     this.setState({dragActive: false})
   }
 
+  // On file drop, prevent the default action and grab the target file
+  // Drag & dropped vs. uploaded via dialog require different property access
+  // One the file is assigned to `targetFile`, check that its type is an image
+  // If it is, set complete. Otherwise show the "file invalid" error
   drop = (e, wasDropped) => {
     this.prevent(e)
+    const imageType = /^image\//
     let targetFile
 
     if(wasDropped) {
@@ -39,7 +45,6 @@ class Uploader extends Component {
       targetFile = this.fileUpload.files[0]
     }
 
-    const imageType = /^image\//
     if (imageType.test(targetFile.type)) {
       this.setComplete(targetFile)
     } else {
@@ -47,6 +52,8 @@ class Uploader extends Component {
     }
   }
 
+  // Sets the UI state to indicate an upload is complete TODO: show loading window
+  // Calls prop function `onDrop` after a timeout, to allow for completion animation to run
   setComplete = (file) => {
     this.setState({uploadComplete: true})
     setTimeout(() => {
@@ -54,6 +61,9 @@ class Uploader extends Component {
     }, 500)
   }
 
+  // Called when a non-image file is uploaded
+  // Sets the invalid state to true, then resets after a timeout
+  // Timeout allows for CSS animation to fade out the invalid warning
   showInvalid = () => {
 		this.setState({ invalidUpload: true })
 		setTimeout(() => {
@@ -61,6 +71,9 @@ class Uploader extends Component {
 		}, 2250)
 	}
 
+  // Used by the custom file upload button
+  // When clicked, it forces a click on the real file upload input
+  // To trigger the native file selection dialog
 	forceInputClick = () => {
 		this.fileUpload.click()
 	}
@@ -90,18 +103,12 @@ class Uploader extends Component {
 						ref={(input) => this.fileUpload = input}
 					/>
 				</div>
-				<CSSTransitionGroup
-					transitionName='error-fade'
-					transitionEnterTimeout={350}
-					transitionLeaveTimeout={350}
-				>
-					{this.state.invalidUpload &&
-						<div className='dropbox-prompt dropbox-error'>
-							<img src={invalidImage} alt='Invalid Upload' />
-							<h3>That's not an image...</h3>
-						</div>
-					}
-				</CSSTransitionGroup>
+				{this.state.invalidUpload &&
+					<div className='dropbox-prompt dropbox-error'>
+						<img src={invalidImage} alt='Invalid Upload' />
+						<h3>That's not an image...</h3>
+					</div>
+				}
 				<div className='dropbox-guideline'>
 					Square images &amp; images under 1MB work best...
 				</div>

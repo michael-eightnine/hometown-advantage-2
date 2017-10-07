@@ -9,6 +9,9 @@ class FileDisplay extends Component {
     }
   }
 
+  // Indicates the uploaded image has been "liked"
+  // Set the UI state, then wait for a duration before calling `props.onComplete`
+  // This allows for the CSS animation time to complete
   setLiked = () => {
 		this.setState({ liked: true })
 		setTimeout(() => {
