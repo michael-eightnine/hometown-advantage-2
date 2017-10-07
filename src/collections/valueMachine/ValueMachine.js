@@ -35,14 +35,12 @@ class ValueMachine extends Component {
     const valueMachineClass = complete ? 'value-machine value-machine-complete' : 'value-machine'
     return (
       <section className={valueMachineClass}>
-        {image === null && !complete
-          ? <Uploader onDrop={this.setUploadedFile} />
-          : null
+        {image === null && !complete &&
+          <Uploader onDrop={this.setUploadedFile} />
         }
 
-        {image !== null && !complete
-          ? <FileDisplay image={image} onComplete={this.setComplete} />
-          : null
+        {image !== null && !complete &&
+          <FileDisplay image={image} onComplete={this.setComplete} />
         }
 
         {complete &&
