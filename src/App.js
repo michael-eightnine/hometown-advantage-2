@@ -7,12 +7,12 @@ import Header from './appShell/Header'
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/hta-v2">
         <Route render={({ location }) => (
           <div className='app-wrap'>
             {/* If on the index page, don't render the header
                 This is required for the splash page animation */}
-            {location.pathname.length > 1 &&
+            {location.pathname.length > 1  &&
               <Header />
             }
             <main className='view-wrap'>

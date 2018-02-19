@@ -20,5 +20,6 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
-  }
+  },
+  "homepage": "http://eightnine.co/hta-v2"
 }
